@@ -1,0 +1,19 @@
+# Compiled output
+out/
+bin/
+*.class
+
+# IDE and editor settings
+.idea/
+*.iml
+.vscode/
+.settings/
+.classpath
+.project
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# WakaTime local logs (reports are submitted separately)
+.wakatime/
