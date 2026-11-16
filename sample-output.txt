@@ -1,0 +1,202 @@
+================================================================================
+ PROG2004 Object Oriented Programming - Assessment 1
+ Health Service Appointment System
+ Student: Runze Xie
+ Clinic day used for this demonstration: Monday
+================================================================================
+
+================================================================================
+ PARTS 1 AND 2  -  HEALTH PROFESSIONALS
+================================================================================
+
+--------------------------------------------------------------------------------
+ The same object, printed in full
+--------------------------------------------------------------------------------
+[General Practitioner] Alice Nguyen (ID: 1001)
+    Available days : Mon, Wed, Fri
+    Consulting room: Room 1
+
+[Nurse] Grace Brown (ID: 3001)
+    Available days : Mon, Tue, Wed, Thu, Fri
+    Ward           : Ward 2
+    Shift          : Morning
+
+--------------------------------------------------------------------------------
+ Objects cannot be created in an invalid state
+--------------------------------------------------------------------------------
+  Refused a professional with a non numeric ID: A health professional ID must contain digits only, but was: GP-1001
+  Refused a patient with an invalid mobile: A patient needs a ten digit mobile number starting with 0, but was: 12345
+
+================================================================================
+ PART 3  -  ALL PROFESSIONALS THROUGH ONE COMMON TYPE
+================================================================================
+
+[General Practitioner] Alice Nguyen (ID: 1001)
+    Available days : Mon, Wed, Fri
+    Consulting room: Room 1
+    Duties         : First point of contact: assesses everyday illness and injury, prescribes medication and refers patients to specialists.
+
+[General Practitioner] Ivan Petrov (ID: 1002)
+    Available days : Mon, Wed, Fri
+    Consulting room: Room 2
+    Duties         : First point of contact: assesses everyday illness and injury, prescribes medication and refers patients to specialists.
+
+[General Practitioner] Tolu Adeyemi (ID: 1003)
+    Available days : Mon, Tue, Wed, Thu, Fri
+    Consulting room: Room 3
+    Duties         : First point of contact: assesses everyday illness and injury, prescribes medication and refers patients to specialists.
+
+[Surgeon] Chidi Okafor (ID: 2001)
+    Available days : Mon, Wed, Fri
+    Specialty      : Orthopaedics
+    Theatre        : Theatre A
+    Duties         : Performs operations in Theatre A and manages surgical patients before and after their procedure.
+
+[Nurse] Grace Brown (ID: 3001)
+    Available days : Mon, Tue, Wed, Thu, Fri
+    Ward           : Ward 2
+    Shift          : Morning
+    Duties         : Provides day to day patient care on Ward 2 during the morning shift and takes blood samples.
+
+[Nurse] Ravi Patel (ID: 3002)
+    Available days : Tue, Thu
+    Ward           : Ward 3
+    Shift          : Evening
+    Duties         : Provides day to day patient care on Ward 3 during the evening shift and takes blood samples.
+
+[Dietitian] Silvia Costa (ID: 4001)
+    Available days : Mon, Wed, Fri
+    Dietary focus  : Weight management
+    Duties         : Assesses dietary needs and designs meal plans for patients with medical conditions, specialising in weight management.
+
+[Physiotherapist] Peter Novak (ID: 5001)
+    Available days : Tue, Thu
+    Focus area     : Sports injury
+    Duties         : Treats movement problems with exercise programs and manual therapy, specialising in sports injury.
+
+Registered health professionals: 8
+
+--------------------------------------------------------------------------------
+ Behaviour that only one type of professional has
+--------------------------------------------------------------------------------
+  Dr Alice Nguyen refers Jane Doe to a Cardiologist.
+  Dr Chidi Okafor performs a knee reconstruction on Omar Haddad in Theatre A.
+  Silvia Costa (Dietitian, ID 4001) prepares a weight management meal plan for Jane Doe to lower her blood pressure.
+  Peter Novak (Physiotherapist, ID 5001) designs a 6 week sports injury program for Mia Rossi.
+
+--------------------------------------------------------------------------------
+ Capabilities shared through interfaces, not through the base class
+--------------------------------------------------------------------------------
+  Dr Alice Nguyen (GP, ID 1001) prescribes Amoxicillin, 500 mg every 8 hours.
+  Dr Chidi Okafor (Surgeon, ID 2001) prescribes Amoxicillin, 500 mg every 8 hours.
+  Nurse Grace Brown (ID 3001) collects a blood sample from Liam Chen on Ward 2.
+  Nurse Ravi Patel (ID 3002) collects a blood sample from Liam Chen on Ward 3.
+
+================================================================================
+ PART 4  -  MODELLING AN APPOINTMENT
+================================================================================
+
+One appointment, printed with the full details of the professional:
+    Time       : 09:00
+    Patient    : Jane Doe (0412 345 678)
+    Booked with: [General Practitioner] Alice Nguyen (ID: 1001)
+                 Available days : Mon, Wed, Fri
+                 Consulting room: Room 1
+
+Two appointments at the same time, ordered by professional ID:
+  09:00   Jane Doe (0412 345 678)       [General Practitioner] Alice Nguyen (ID: 1001)
+  09:00   Omar Haddad (0466 778 899)    [Surgeon] Chidi Okafor (ID: 2001)
+
+================================================================================
+ PART 5  -  MANAGING THE COLLECTION OF APPOINTMENTS
+================================================================================
+
+Clinic schedule: 08:00-16:00 in 30 minute slots (16 slots per day)
+Every booking check reads this one schedule object, so a change to the
+clinic's hours or slot length flows through the whole system.
+
+--------------------------------------------------------------------------------
+ Adding appointments
+--------------------------------------------------------------------------------
+  CONFIRMED : Jane Doe with Alice Nguyen (ID 1001) at 09:00 on Monday.
+  CONFIRMED : Jane Doe with Silvia Costa (ID 4001) at 11:00 on Monday.
+  CONFIRMED : Liam Chen with Alice Nguyen (ID 1001) at 10:30 on Monday.
+  CONFIRMED : Omar Haddad with Chidi Okafor (ID 2001) at 09:00 on Monday.
+  CONFIRMED : Mia Rossi with Grace Brown (ID 3001) at 08:00 on Monday.
+  CONFIRMED : Ava Thompson with Alice Nguyen (ID 1001) at 15:30 on Monday.
+
+--------------------------------------------------------------------------------
+ Bookings that must be refused
+--------------------------------------------------------------------------------
+  REJECTED  : Alice Nguyen (ID 1001) is already booked at 09:00. Please choose another time.
+  REJECTED  : 09:15 is not the start of one of the clinic's slots. Appointments must start on a 30 minute boundary between 08:00 and 16:00.
+  REJECTED  : Peter Novak (ID 5001) does not work on Mondays. Available days: Tue, Thu.
+  REJECTED  : 17:30 is outside the clinic's opening hours. The clinic runs 08:00-16:00 in 30 minute slots (16 slots per day).
+
+  Appointments held after the attempts above: 6
+
+--------------------------------------------------------------------------------
+ All appointments, earliest first
+--------------------------------------------------------------------------------
+  1. 08:00   Mia Rossi (0433 998 877)      [Nurse] Grace Brown (ID: 3001)
+  2. 09:00   Jane Doe (0412 345 678)       [General Practitioner] Alice Nguyen (ID: 1001)
+  3. 09:00   Omar Haddad (0466 778 899)    [Surgeon] Chidi Okafor (ID: 2001)
+  4. 10:30   Liam Chen (0422 334 455)      [General Practitioner] Alice Nguyen (ID: 1001)
+  5. 11:00   Jane Doe (0412 345 678)       [Dietitian] Silvia Costa (ID: 4001)
+  6. 15:30   Ava Thompson (0455 667 788)   [General Practitioner] Alice Nguyen (ID: 1001)
+  6 appointment(s) listed.
+
+--------------------------------------------------------------------------------
+ Filtered by health professional ID 1001
+--------------------------------------------------------------------------------
+  1. 09:00   Jane Doe (0412 345 678)       [General Practitioner] Alice Nguyen (ID: 1001)
+  2. 10:30   Liam Chen (0422 334 455)      [General Practitioner] Alice Nguyen (ID: 1001)
+  3. 15:30   Ava Thompson (0455 667 788)   [General Practitioner] Alice Nguyen (ID: 1001)
+  3 appointment(s) listed.
+
+--------------------------------------------------------------------------------
+ Filtered by patient mobile number 0412 345 678
+--------------------------------------------------------------------------------
+  1. 09:00   Jane Doe (0412 345 678)       [General Practitioner] Alice Nguyen (ID: 1001)
+  2. 11:00   Jane Doe (0412 345 678)       [Dietitian] Silvia Costa (ID: 4001)
+  2 appointment(s) listed.
+
+--------------------------------------------------------------------------------
+ The same day, ordered by professional name (Comparator)
+--------------------------------------------------------------------------------
+  1. 09:00   Jane Doe (0412 345 678)       [General Practitioner] Alice Nguyen (ID: 1001)
+  2. 10:30   Liam Chen (0422 334 455)      [General Practitioner] Alice Nguyen (ID: 1001)
+  3. 15:30   Ava Thompson (0455 667 788)   [General Practitioner] Alice Nguyen (ID: 1001)
+  4. 09:00   Omar Haddad (0466 778 899)    [Surgeon] Chidi Okafor (ID: 2001)
+  5. 08:00   Mia Rossi (0433 998 877)      [Nurse] Grace Brown (ID: 3001)
+  6. 11:00   Jane Doe (0412 345 678)       [Dietitian] Silvia Costa (ID: 4001)
+  6 appointment(s) listed.
+
+--------------------------------------------------------------------------------
+ Deciding whether two professionals are the same person
+--------------------------------------------------------------------------------
+  equals() on the same ID       : true
+  hashCode() also agrees        : true
+  a different professional      : false
+
+--------------------------------------------------------------------------------
+ Cancelling appointments
+--------------------------------------------------------------------------------
+  CANCELLED : Liam Chen's 10:30 appointment with Alice Nguyen (ID 1001) has been cancelled.
+  FAILED    : no appointment was found at 10:30 for a health professional with ID 1001.
+  FAILED    : no appointment was found at 09:00 for a health professional with ID 9999.
+  CANCELLED : 2 appointment(s) for mobile number 0412345678 have been cancelled.
+  FAILED    : no appointments were found for mobile number 0499999999.
+
+================================================================================
+ PART 6  -  THE UPDATED COLLECTION
+================================================================================
+
+  1. 08:00   Mia Rossi (0433 998 877)      [Nurse] Grace Brown (ID: 3001)
+  2. 09:00   Omar Haddad (0466 778 899)    [Surgeon] Chidi Okafor (ID: 2001)
+  3. 15:30   Ava Thompson (0455 667 788)   [General Practitioner] Alice Nguyen (ID: 1001)
+  3 appointment(s) listed.
+
+  Appointments remaining: 3
+
+End of demonstration.
