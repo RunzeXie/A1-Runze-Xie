@@ -1,4 +1,4 @@
-# Video script — the four pillars of OOP in A1-rxie
+# Video script — the four pillars of OOP in A1-RunzeXie
 
 Maximum 5 minutes. The rubric rewards four things for **each** pillar: name it,
 explain the concept in your own words, point to the exact place in your code,

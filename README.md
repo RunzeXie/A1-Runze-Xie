@@ -1,4 +1,4 @@
-# A1-rxie — Health Service Appointment System
+# A1-RunzeXie — Health Service Appointment System
 
 PROG2004 Object Oriented Programming — Assessment 1 (Parts 1–6).
 
@@ -17,7 +17,7 @@ requires.
 ## 1. Project structure
 
 ```
-A1-rxie/
+A1-RunzeXie/
 ├── src/
 │   ├── AssignmentOne.java          main method, the Part 3 and Part 6 demonstration
 │   ├── HealthProfessional.java     Part 1  abstract base class (ID, name, roster)
