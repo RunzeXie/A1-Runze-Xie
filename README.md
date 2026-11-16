@@ -257,23 +257,26 @@ professional changes. That is the benefit of programming to the base type.
 
 ### Suggested commit plan (so the history shows incremental progress)
 
-Commit in this order, one logical step at a time, with messages like these:
+Commit in this order. Each step leaves the project compiling, which is what a
+marker looks for in a commit history.
 
 ```
-Add WeekDay enum for professional rosters
-Add TimeSlot with Comparable so times sort correctly
-Add abstract HealthProfessional with validated id, name and roster
-Add GeneralPractitioner extending HealthProfessional
-Add Surgeon and Nurse with capability interfaces
-Add Dietitian and Physiotherapist
-Demonstrate all professionals through the common base type
-Add Patient with mobile number validation
-Add Appointment with Comparable ordering by time
-Add ClinicSchedule and slot validation
-Add AppointmentManager with booking and double-booking checks
-Add filtering by professional and by patient
-Add sorting by time and by professional name
-Add cancellation by professional/time and by patient
-Add error case demonstrations and formatted console output
-Add Javadoc and inline comments
+ 1  Add WeekDay enum for professional rosters
+ 2  Add TimeSlot with Comparable so times sort correctly
+ 3  Add ClinicSchedule and slot validation
+ 4  Add abstract HealthProfessional with validated id, name and roster
+ 5  Add Prescriber interface for professionals who can prescribe
+ 6  Add SampleCollector interface for professionals who take blood
+ 7  Add GeneralPractitioner extending HealthProfessional
+ 8  Add Surgeon with surgical specialty and theatre
+ 9  Add Nurse with ward, shift and sample collection
+10  Add Dietitian with dietary focus and meal plans
+11  Add Physiotherapist with focus area and exercise programs
+12  Add Patient with mobile number validation
+13  Add Appointment with Comparable ordering by time
+14  Add AppointmentManager with booking and double-booking checks
+15  Add filtering by professional and by patient, and sorting
+16  Add cancellation by professional/time and by patient
+17  Add error case demonstration and formatted console output
+18  Add Javadoc and inline comments
 ```
