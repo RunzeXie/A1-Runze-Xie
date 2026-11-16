@@ -63,7 +63,7 @@ public class Surgeon extends HealthProfessional implements Prescriber {
      * @param surgicalSpecialty the new specialty
      * @throws IllegalArgumentException if the specialty is null or blank
      */
-    public void setSurgicalSpecialty(String surgicalSpecialty) {
+    public final void setSurgicalSpecialty(String surgicalSpecialty) {
         if (surgicalSpecialty == null || surgicalSpecialty.trim().isEmpty()) {
             throw new IllegalArgumentException("A surgeon needs a surgical specialty.");
         }
@@ -85,7 +85,7 @@ public class Surgeon extends HealthProfessional implements Prescriber {
      * @param operatingTheatre the new theatre
      * @throws IllegalArgumentException if the theatre is null or blank
      */
-    public void setOperatingTheatre(String operatingTheatre) {
+    public final void setOperatingTheatre(String operatingTheatre) {
         if (operatingTheatre == null || operatingTheatre.trim().isEmpty()) {
             throw new IllegalArgumentException("A surgeon needs an operating theatre.");
         }

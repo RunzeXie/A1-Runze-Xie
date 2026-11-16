@@ -57,7 +57,7 @@ public class GeneralPractitioner extends HealthProfessional implements Prescribe
      * @param consultingRoom the new consulting room
      * @throws IllegalArgumentException if the room is null or blank
      */
-    public void setConsultingRoom(String consultingRoom) {
+    public final void setConsultingRoom(String consultingRoom) {
         if (consultingRoom == null || consultingRoom.trim().isEmpty()) {
             throw new IllegalArgumentException("A general practitioner needs a consulting room.");
         }

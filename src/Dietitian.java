@@ -55,7 +55,7 @@ public class Dietitian extends HealthProfessional {
      * @param dietaryFocus the new dietary focus
      * @throws IllegalArgumentException if the focus is null or blank
      */
-    public void setDietaryFocus(String dietaryFocus) {
+    public final void setDietaryFocus(String dietaryFocus) {
         if (dietaryFocus == null || dietaryFocus.trim().isEmpty()) {
             throw new IllegalArgumentException("A dietitian needs a dietary focus.");
         }

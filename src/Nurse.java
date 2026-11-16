@@ -64,7 +64,7 @@ public class Nurse extends HealthProfessional implements SampleCollector {
      * @param ward the new ward
      * @throws IllegalArgumentException if the ward is null or blank
      */
-    public void setWard(String ward) {
+    public final void setWard(String ward) {
         if (ward == null || ward.trim().isEmpty()) {
             throw new IllegalArgumentException("A nurse needs a ward.");
         }
@@ -86,7 +86,7 @@ public class Nurse extends HealthProfessional implements SampleCollector {
      * @param shift the new shift
      * @throws IllegalArgumentException if the shift is null or blank
      */
-    public void setShift(String shift) {
+    public final void setShift(String shift) {
         if (shift == null || shift.trim().isEmpty()) {
             throw new IllegalArgumentException("A nurse needs a shift.");
         }

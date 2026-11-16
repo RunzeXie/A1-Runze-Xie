@@ -170,7 +170,7 @@ public abstract class HealthProfessional {
      * @param name the new name
      * @throws IllegalArgumentException if the name is null or blank
      */
-    public void setName(String name) {
+    public final void setName(String name) {
         if (name == null || name.trim().isEmpty()) {
             throw new IllegalArgumentException("A health professional must have a name.");
         }
@@ -196,7 +196,7 @@ public abstract class HealthProfessional {
      * @throws IllegalArgumentException if the roster is null, empty or contains
      *                                  a null day
      */
-    public void setAvailableDays(List<WeekDay> availableDays) {
+    public final void setAvailableDays(List<WeekDay> availableDays) {
         this.availableDays = normaliseDays(availableDays);
     }
 

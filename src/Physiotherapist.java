@@ -58,7 +58,7 @@ public class Physiotherapist extends HealthProfessional {
      * @param focusArea the new focus area
      * @throws IllegalArgumentException if the focus area is null or blank
      */
-    public void setFocusArea(String focusArea) {
+    public final void setFocusArea(String focusArea) {
         if (focusArea == null || focusArea.trim().isEmpty()) {
             throw new IllegalArgumentException("A physiotherapist needs a focus area.");
         }
